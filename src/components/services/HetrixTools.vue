@@ -28,23 +28,23 @@ export default {
   },
   data: () => ({
     monitors: null,
-    checks: null,
+    //checks: null,
   }),
   computed: {
     up: function () {
-      if (!this.checks) {
+      if (!this.monitors) {
         return "";
       }
-      return this.checks.filter((check) => {
-        return check.uptime_status.toLowerCase() === "up";
+      return this.monitors.filter((monitor) => {
+        return monitor.uptime_status.toLowerCase() === "up";
       }).length;
     },
     down: function () {
-      if (!this.checks) {
+      if (!this.monitors) {
         return "";
       }
-      return this.checks.filter((check) => {
-        return check.uptime_status.toLowerCase() === "down";
+      return this.monitors.filter((monitor) => {
+        return monitor.uptime_status.toLowerCase() === "down";
       }).length;
     },
   },
@@ -57,18 +57,19 @@ export default {
         "Authorization": "Bearer " + this.item.apikey,
       };
 
-      this.monitors = await this.fetch("/v3/uptime-monitors", { headers }).catch(
+      response = await this.fetch("/v3/uptime-monitors", { headers }).catch(
         (e) => {
           console.error(e);
         },
       );
+      this.monitors = response.monitors;
 
-      let checks = [];
-      for (let monitor of this.monitors) {
-        checks = checks.concat(monitor);
-      }
+      //let checks = [];
+      //for (let monitor of this.monitors) {
+      //  checks = checks.concat(monitor);
+      //}
 
-      this.checks = checks;
+      //this.checks = checks;
     },
   },
 };
