@@ -28,6 +28,7 @@ export default {
   },
   data: () => ({
     monitors: null,
+    checks: null,
   }),
   computed: {
     up: function () {
@@ -61,6 +62,13 @@ export default {
           console.error(e);
         },
       );
+
+      let checks = [];
+      for (let monitor of this.monitors) {
+        checks = checks.concat(monitor);
+      }
+
+      this.checks = checks;
     },
   },
 };
