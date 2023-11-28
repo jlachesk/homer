@@ -32,19 +32,19 @@ export default {
   }),
   computed: {
     up: function () {
-      if (!this.monitors) {
+      if (!this.checks) {
         return "";
       }
-      return this.monitors.filter((monitor) => {
-        return monitor.uptime_status.toLowerCase() === "up";
+      return this.checks.filter((check) => {
+        return check.uptime_status.toLowerCase() === "up";
       }).length;
     },
     down: function () {
-      if (!this.monitors) {
+      if (!this.checks) {
         return "";
       }
-      return this.monitors.filter((monitor) => {
-        return monitor.uptime_status.toLowerCase() === "down";
+      return this.checks.filter((check) => {
+        return check.uptime_status.toLowerCase() === "down";
       }).length;
     },
   },
