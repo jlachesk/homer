@@ -13,7 +13,7 @@ within Homer:
   - [PiHole](#pihole)
   - [OpenWeatherMap](#openweathermap)
   - [Medusa](#medusa)
-  - [Lidarr, Prowlarr, Sonarr and Radarr](#lidarr-prowlarr-sonarr-and-radarr)
+  - [Lidarr, Prowlarr, Sonarr, Readarr and Radarr](#lidarr-prowlarr-sonarr-readarr-and-radarr)
   - [PaperlessNG](#paperlessng)
   - [Ping](#ping)
   - [Prometheus](#prometheus)
@@ -24,17 +24,18 @@ within Homer:
   - [Tautulli](#tautulli)
   - [Mealie](#mealie)
   - [Healthchecks](#healthchecks)
-  - [Proxmox](#proxmox)
   - [rTorrent](#rtorrent)
+  - [Proxmox](#proxmox)
   - [qBittorrent](#qbittorrent)
-  - [CopyToClipboard](#copy-to-clipboard)
-  - [Speedtest Tracker](#SpeedtestTracker)
-  - [What's Up Docker](#whats-up-docker)
+  - [Copy to Clipboard](#copy-to-clipboard)
+  - [SpeedtestTracker](#speedtesttracker)
+  - [What's up Docker](#whats-up-docker)
   - [SABnzbd](#sabnzbd)
-  - [OctoPrint](#octoprint)
+  - [OctoPrint/Moonraker](#octoprintmoonraker)
   - [Tdarr](#tdarr)
   - [PiAlert](#pialert)
   - [Immich](#immich)
+  - [HetrixTools](#hetrixtools)
 
 If you experiencing any issue, please have a look to the [troubleshooting](troubleshooting.md) page.
 
@@ -444,4 +445,17 @@ The Immich service displays stats from your Immich server.
   type: "Immich"
   apikey: "<--- Your api key --->" # administrator user
   updateInterval: 5000 # (Optional) Interval (in ms) for updating the stats
+```
+
+## HetrixTools
+
+HetrixTools is a system uptime and resource monitor. This service works for the class Uptime monitor and may not work as expected for other HetrixTools offerings.
+
+```yaml
+- name: "HetrixTools"
+  logo: "assets/tools/hetrix.png"
+  url: "https://hetrixtools.com/dashboard/uptime-monitors/"
+  type: "HetrixTools"
+  apikey: "API Key"
+  endpoint: "https://api.hetrixtools.com" # you need to use a proxy of some sort to avoid CORS issues
 ```
