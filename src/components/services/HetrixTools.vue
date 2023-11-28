@@ -57,7 +57,7 @@ export default {
         "Authorization": "Bearer " + this.item.apikey,
       };
 
-      response = await this.fetch("/v3/uptime-monitors", { headers }).catch(
+      let response = await this.fetch("/v3/uptime-monitors", { headers }).catch(
         (e) => {
           console.error(e);
         },
